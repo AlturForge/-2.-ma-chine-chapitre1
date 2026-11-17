@@ -1,0 +1,186 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Liseur chinois 中文 — Forge bilingue</title><style>
+
+:root{color-scheme:light dark;--bg:#f8f7f4;--ink:#292a26;--muted:#65655f;--card:#fff;--border:#dcdad2;--accent:#315e50;--soft:#edf2ec;--selected:#d5e9d9;--focus:#1c5ba5}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}main{max-width:780px;margin:auto;padding:28px 22px 64px}header{border-bottom:1px solid var(--border);padding:0 0 16px;display:flex;justify-content:space-between;gap:16px;align-items:center}.brand{text-transform:uppercase;font-size:.76rem;letter-spacing:.1em;font-weight:750}.tag{color:var(--accent);font-size:.8rem;font-weight:700}.hero{padding:28px 0 24px}.eyebrow{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:750}.hero h1{font:normal clamp(2.1rem,6vw,3.5rem)/1.15 Georgia,serif;margin:10px 0}.hero h1 span{display:inline-block}.hero p{margin:0;color:var(--muted)}button{font:inherit;cursor:pointer;color:inherit}button:focus-visible,a:focus-visible,audio:focus-visible{outline:3px solid var(--focus);outline-offset:2px}.player{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:16px 18px;margin-bottom:18px}.player label{display:block;font-weight:700;font-size:.9rem;margin-bottom:8px}.player audio{width:100%;height:44px}.note{font-size:.85rem;color:var(--muted);margin:6px 0 0}.sticky{position:sticky;top:0;z-index:5;background:var(--soft);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:8px;padding:12px 16px;box-shadow:0 2px 6px rgba(0,0,0,.06);min-height:85px}.sticky .empty{color:var(--muted);margin:0;font-size:.95rem}.details-top{display:flex;gap:12px;align-items:center}.han{font-size:1.45rem;font-weight:750}.pin{color:var(--accent);font-weight:700}.play{margin-left:auto;min-height:44px;min-width:44px;border:1px solid var(--border);border-radius:8px;background:var(--card);font-size:1.1rem}.meaning{margin:2px 0 0;font-size:.94rem;line-height:1.4}.status{font-size:.82rem;color:var(--muted);margin:2px 0 0}.panel{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-top:24px;padding:clamp(18px,4vw,28px)}.panel h2{color:var(--muted);font-size:.77rem;letter-spacing:.09em;text-transform:uppercase;margin:0 0 10px}.chinese{font-size:clamp(1.25rem,3.5vw,1.55rem);line-height:2.05;margin:0;word-break:normal}.word{display:inline;border:0;border-bottom:2px solid transparent;background:transparent;padding:0 1px;border-radius:3px;line-height:1.65}.word:hover{background:var(--soft);border-color:var(--accent)}.word.active{background:var(--selected);color:#173b2e;border-color:#315e50}.fr{border-top:1px solid var(--border);margin-top:22px;padding-top:18px}.fr p{font:1.05rem/1.75 Georgia,serif;margin:0}.footer{font-size:.83rem;color:var(--muted);margin-top:28px}.footer a{color:var(--accent)}@media(max-width:450px){main{padding:22px 16px 48px}.panel{padding:18px 16px}.sticky{padding:10px 12px}.chinese{line-height:1.95}}@media(prefers-color-scheme:dark){:root{--bg:#191919;--ink:#f3f2ef;--muted:#c2c0b8;--card:#222220;--border:#4c4b46;--accent:#afdcbf;--soft:#303830;--selected:#3e6652;--focus:#8cbcff}.word.active{color:#fff;border-color:#afdcbf}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+textarea{width:100%;min-height:110px;font:1.05rem/1.6 "Noto Sans","Microsoft YaHei",system-ui,sans-serif;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--ink);resize:vertical}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px}
+.actions .go{border:1px solid var(--accent);color:var(--accent);background:var(--card);border-radius:8px;padding:9px 16px;font-weight:700}
+.actions .go:hover{background:var(--soft)}
+.actions .ghost{border:1px solid var(--border);color:var(--muted);background:var(--card);border-radius:8px;padding:9px 14px}
+.actions .ghost:hover{background:var(--soft)}
+.frline{border-top:1px solid var(--border);margin-top:14px;padding-top:12px;font:1.02rem/1.7 Georgia,serif;color:var(--ink)}
+.frline .auto{color:#2c6e4f}
+.frline .hint{display:block;font-size:.72rem;color:var(--muted);font-style:italic;font-family:system-ui}
+.frline[contenteditable="true"]:focus{outline:2px solid var(--selected);border-radius:6px}
+.saveditem{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;margin-top:6px;font-size:.9rem}
+.saveditem .name{flex:1;color:var(--accent);cursor:pointer;font-weight:600}
+.saveditem button{border:1px solid var(--border);background:var(--card);border-radius:6px;padding:4px 10px;color:var(--muted);font-size:.8rem}
+.pinyin{font-size:.72rem;display:block;text-align:center;line-height:1.1;color:var(--muted);font-family:system-ui}
+.don{margin-top:26px;background:var(--soft);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;padding:14px 16px;font-size:.92rem}
+</style></head><body><main><header><span class="brand">Forge bilingue 中文 · Français</span><span class="tag">Lecture interactive</span></header><div class="hero"><div class="eyebrow">Liseur chinois · 中文阅读器</div><h1>Liseur chinois <span lang="zh">· 中文阅读器</span></h1><p>Collez n'importe quel texte chinois : la traduction française apparaît sous chaque phrase. Touchez un mot ou un caractère pour voir le pinyin et le sens.</p></div>
+
+<div class="sticky" role="region" aria-label="Fiche de vocabulaire" aria-live="polite" id="detail"><p class="empty">Touchez un mot dans le texte pour ouvrir sa fiche ici.</p></div>
+
+<div class="panel"><h2>Votre texte · 您的文本</h2>
+<textarea id="input" placeholder="Collez ou tapez un texte chinois ici…">你好！我很高兴认识你。今天天气很好，我们一起去公园散步吧。</textarea>
+<div class="actions">
+<button class="go" id="btnGo">📖 Lire le texte</button>
+<button class="ghost" id="btnWord">Mot par mot</button>
+<button class="ghost" id="btnChar">Caractère par caractère</button>
+<button class="ghost" id="btnSave">💾 Enregistrer ce texte</button>
+<span class="status" id="status"></span>
+</div></div>
+
+<div id="panels"></div>
+
+<div class="panel"><h2>Mes textes enregistrés · 我的文本</h2>
+<p class="note">Enregistrés sur votre appareil (stockage local du navigateur) : aucun compte, aucun envoi de vos textes.</p>
+<div id="savedList"></div></div>
+
+<div class="don"><strong> Prix libre</strong> — le Liseur chinois est un programme gratuit d'AlturLab. S'il vous est utile, soutenez-le par un don du montant de votre choix.</div>
+
+<p class="footer">Liseur chinois · Forge bilingue AlturLab · Composant du <a href="https://github.com/AlturForge/forge-bilingue" target="_blank" rel="noopener">lecteur interactif « Ma Chine »</a>. Dictionnaire : <a href="https://chine.in/mandarin/dictionnaire/CFDICT/" target="_blank" rel="noopener">CFDICT de Chine Informations</a> (55 300 entrées), données sous <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>. Traduction automatique indicative : cliquez sur le texte français pour le corriger.</p></main>
+<script>
+"use strict";
+/* Stockage sûr : localStorage si autorisé, sinon mémoire (aperçu sandboxé) */
+const store=(()=>{try{const t="__t";localStorage.setItem(t,"1");localStorage.removeItem(t);return localStorage}catch(e){const m=new Map();return{getItem:k=>m.has(k)?m.get(k):null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k)}}})();
+
+let LEX=null, MAXLEN=6, sortedKeys=[], mode="word";
+const TR=new Map(), AUTO=new Map();
+const $=id=>document.getElementById(id);
+const detail=$("detail"), panels=$("panels"), status=$("status");
+let selected=null;
+
+Promise.all([1,2,3].map(i=>fetch("lexique-"+i+".json").then(r=>r.json()))).then(parts=>{
+  const d=Object.assign({},parts[0],parts[1],parts[2]);
+  LEX=d;
+  sortedKeys=Object.keys(d).filter(k=>k.length>1&&k.length<=MAXLEN).sort((a,b)=>b.length-a.length);
+  $("status").textContent="Dictionnaire chargé : "+Object.keys(d).length+" entrées.";
+  render();
+}).catch(()=>$("status").textContent="Impossible de charger le lexique (ouvrez la page depuis le dossier complet).");
+
+const isHz=c=>/[\u3400-\u9fff\uf900-\ufaff]/.test(c);
+function segment(text){
+  const out=[];let i=0,buf="";
+  const flush=()=>{if(buf){out.push({t:buf});buf=""}};
+  while(i<text.length){
+    if(!isHz(text[i])){buf+=text[i];i++;continue}
+    flush();
+    if(mode==="char"){out.push({w:text[i]});i++;continue}
+    let m=null;
+    const lim=Math.min(MAXLEN,text.length-i);
+    for(const k of sortedKeys){if(k.length>lim)continue;if(text.startsWith(k,i)){m=k;break}}
+    if(m){out.push({w:m});i+=m.length}
+    else{out.push({w:text[i]});i++}
+  }
+  flush();return out;
+}
+function splitSentences(text){
+  const parts=text.split(/(?<=[。！？!?；;\n])/).map(s=>s.trim()).filter(Boolean);
+  return parts.length?parts:[text.trim()].filter(Boolean);
+}
+async function translateSentence(zh){
+  try{
+    const r=await fetch("https://api.mymemory.translated.net/get?q="+encodeURIComponent(zh)+"&langpair=zh|fr");
+    if(!r.ok)throw 0;
+    const j=await r.json();
+    const t=j&&j.responseData&&j.responseData.translatedText;
+    if(t&&!/^\s*(please|MYMEMORY WARNING)/i.test(t))return t;
+    throw 0;
+  }catch(e){return null}
+}
+function gloss(zh){
+  return segment(zh).map(x=>x.w?LEX[x.w][1]:null).filter(Boolean).join(" · ");
+}
+function choose(w,btn){
+  if(selected)selected.classList.remove("active");
+  selected=btn;btn.classList.add("active");
+  detail.replaceChildren();
+  const row=document.createElement("div");row.className="details-top";
+  const han=document.createElement("span");han.className="han";han.lang="zh-CN";han.textContent=w;
+  const pin=document.createElement("span");pin.className="pin";
+  pin.textContent=LEX[w]?LEX[w][0]:"(pinyin inconnu)";
+  row.append(han,pin);
+  const def=document.createElement("p");def.className="meaning";
+  def.textContent=LEX[w]?LEX[w][1]:"(non trouvé dans le dictionnaire)";
+  detail.append(row,def);
+  if(w.length>1){
+    const det=document.createElement("p");det.className="meaning";det.style.color="var(--muted)";
+    det.textContent="Caractère par caractère : "+[...w].map(c=>LEX[c]?c+" "+LEX[c][0]:c).join(" · ");
+    detail.append(det);
+  }
+}
+function speak(t){
+  try{
+    if(!("speechSynthesis" in window))return;
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(t.replace(/[。！？，、；]/g," "));
+    u.lang="zh-CN";
+    const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.startsWith("zh"));
+    if(v)u.voice=v;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function render(){
+  if(!LEX)return;
+  panels.replaceChildren();if(selected)selected=null;
+  const text=$("input").value;
+  splitSentences(text).forEach((zh,idx)=>{
+    const sec=document.createElement("section");sec.className="panel";
+    const h=document.createElement("h2");h.textContent="中文 · Phrase "+(idx+1);
+    const p=document.createElement("p");p.className="chinese";p.lang="zh-CN";
+    for(const x of segment(zh)){
+      if(x.t!==undefined){p.append(document.createTextNode(x.t));continue}
+      const b=document.createElement("button");b.type="button";b.className="word";
+      b.textContent=x.w;
+      b.setAttribute("aria-label",x.w+" : afficher la fiche");
+      if(LEX[x.w]){const py=document.createElement("span");py.className="pinyin";py.textContent=LEX[x.w][0];b.appendChild(py)}
+      b.addEventListener("click",ev=>{ev.stopPropagation();choose(x.w,b);speak(x.w)});
+      p.append(b);
+    }
+    const fr=document.createElement("div");fr.className="frline";fr.setAttribute("contenteditable","true");fr.dataset.zh=zh;
+    const setFr=(txt,isAuto)=>{fr.replaceChildren();const s=document.createElement("span");s.className=isAuto?"auto":"";s.textContent=txt;fr.append(s);const hint=document.createElement("span");hint.className="hint";hint.textContent="Traduction "+(isAuto?"automatique, cliquez pour corriger.":"corrigée.");fr.append(hint)};
+    const known=TR.get(zh);
+    if(known)setFr(known,false);
+    else if(AUTO.get(zh))setFr(AUTO.get(zh),true);
+    else{
+      setFr(gloss(zh),true);
+      translateSentence(zh).then(t=>{
+        if(t&&!TR.has(zh)){AUTO.set(zh,t);if(fr.dataset.zh===zh&&!fr.dataset.touched)setFr(t,true)}
+        else if(!t)status.textContent="Traduction automatique indisponible : glose du dictionnaire affichée (le dictionnaire complet reste cliquable mot par mot).";
+      });
+    }
+    fr.addEventListener("input",()=>{fr.dataset.touched="1";const first=fr.firstChild;TR.set(zh,(first&&first.nodeType===3?first.textContent:(first&&first.textContent)||"").trim())});
+    sec.append(h,p,fr);panels.append(sec);
+  });
+}
+$("btnGo").onclick=render;
+$("btnWord").onclick=()=>{mode="word";render()};
+$("btnChar").onclick=()=>{mode="char";render()};
+
+const KEY="liseurTextes";
+function getSaved(){try{return JSON.parse(store.getItem(KEY)||"[]")}catch(e){return[]}}
+function setSaved(a){try{store.setItem(KEY,JSON.stringify(a))}catch(e){}}
+function renderSaved(){
+  const list=$("savedList");list.replaceChildren();
+  const items=getSaved();
+  if(!items.length){const p=document.createElement("p");p.className="note";p.textContent="Aucun texte enregistré pour le moment.";list.append(p);return}
+  items.forEach((it,i)=>{
+    const row=document.createElement("div");row.className="saveditem";
+    const nm=document.createElement("span");nm.className="name";nm.textContent=it.name;
+    nm.onclick=()=>{$("input").value=it.zh;it.tr.forEach(pair=>TR.set(pair[0],pair[1]));render()};
+    const del=document.createElement("button");del.textContent="Supprimer";
+    del.onclick=()=>{const a=getSaved();a.splice(i,1);setSaved(a);renderSaved()};
+    row.append(nm,del);list.append(row);
+  });
+}
+$("btnSave").onclick=()=>{
+  const zh=$("input").value.trim();
+  if(!zh){status.textContent="Rien à enregistrer.";return}
+  const a=getSaved();
+  a.unshift({name:zh.slice(0,18)+(zh.length>18?"…":""),zh:zh,tr:[...TR.entries()].filter(pair=>zh.includes(pair[0]))});
+  setSaved(a);renderSaved();
+  status.textContent="Texte enregistré sur cet appareil.";
+};
+renderSaved();
+</script></body></html>

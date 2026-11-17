@@ -1,0 +1,8 @@
+LISEUR CHINOIS 中文阅读器 — version publique
+Extension générique du lecteur interactif « Ma Chine » (forge bilingue AlturLab).
+Collez un texte chinois : traduction française sous chaque phrase (indicative, corrigible
+au clic), clic sur chaque mot/caractère : pinyin tonal + définition CFDICT + audio.
+Lexique : CFDICT (Chine Informations, D. Houstin) CC BY-SA 3.0,
+https://chine.in/mandarin/dictionnaire/CFDICT/ — 55 304 entrées en 3 fichiers (limite
+de taille du connecteur GitHub). Textes enregistrés dans le stockage local du navigateur,
+aucun compte, aucun envoi de données.
