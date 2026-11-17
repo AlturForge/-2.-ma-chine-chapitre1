@@ -51,8 +51,9 @@ const $=id=>document.getElementById(id);
 const detail=$("detail"), panels=$("panels"), status=$("status");
 let selected=null;
 
-Promise.all([1,2,3].map(i=>fetch("lexique-"+i+".json").then(r=>r.json()))).then(parts=>{
-  const d=Object.assign({},parts[0],parts[1],parts[2]);
+Promise.all(Array.from({length:43},(_,i)=>fetch("lexique-"+(i+1)+".jsonl").then(r=>r.text()))).then(texts=>{
+  const d={};
+  for(const txt of texts)for(const line of txt.split("\n")){const f=line.split("\t");if(f.length===3)d[f[0]]=[f[1],f[2]];}
   LEX=d;
   sortedKeys=Object.keys(d).filter(k=>k.length>1&&k.length<=MAXLEN).sort((a,b)=>b.length-a.length);
   $("status").textContent="Dictionnaire chargé : "+Object.keys(d).length+" entrées.";
